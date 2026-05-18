@@ -1,0 +1,688 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM VARIABLES & RESET
+   ========================================================================== */
+:root {
+  /* Color Palette (Outdoor & Orienteering Theme) */
+  --primary-color: #2e5a44; /* Forest Green */
+  --primary-dark: #1e3b2d;
+  --accent-color: #ff6b00; /* Control Flag Orange */
+  --accent-hover: #e05e00;
+  --bg-color: #fafafa; /* Clean light grey */
+  --surface-color: #ffffff;
+  --text-color: #333333; /* Charcoal for readability */
+  --text-muted: #666666;
+  --border-color: #e5e7eb;
+
+  /* Typography & Layout defaults */
+  --font-main: "Inter", system-ui, -apple-system, sans-serif;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Keeps footer at bottom */
+}
+
+#main-content {
+  flex: 1;
+  padding-bottom: 4rem;
+}
+
+/* ==========================================================================
+   2. GLOBAL COMPONENTS (Buttons, Typography, Headers)
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+/* Reusable Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition:
+    background var(--transition-speed),
+    transform var(--transition-speed);
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Generic Header Section for Inner Pages */
+.about-header,
+.education-header,
+.tools-intro,
+.events-header,
+.gallery-header,
+.membership-header,
+.contact-header {
+  text-align: center;
+  padding: 5rem 5% 3rem;
+  background: linear-gradient(135deg, #f0f4f1 0%, #e2ede5 100%);
+  margin-bottom: 2rem;
+}
+
+.about-header h1,
+.education-header h1,
+.tools-intro h1,
+.events-header h1,
+.gallery-header h1,
+.membership-header h1,
+.contact-header h1 {
+  font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   3. GLOBAL HEADER & NAVBAR (CSS Flexbox)
+   ========================================================================== */
+header {
+  background-color: var(--primary-color);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #e2ede5;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.hamburger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: var(--transition-speed);
+}
+
+/* ==========================================================================
+   4. HOME PAGE (`index.html`)
+   ========================================================================== */
+.hero-section {
+  background:
+    linear-gradient(rgba(46, 90, 68, 0.85), rgba(30, 59, 45, 0.9)),
+    url("../assets/images/main-background.jpg") no-repeat center / cover;
+  color: white;
+  padding: 8rem 5%;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  color: #d1e2d8;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.features-section {
+  max-width: var(--max-width);
+  margin: 4rem auto;
+  padding: 0 5%;
+  text-align: center;
+}
+
+.features-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.feature-card {
+  background-color: var(--surface-color);
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  flex: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   5. ABOUT & EDUCATION & BENEFITS
+   ========================================================================== */
+.vision-mission,
+.contact-container {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 5%;
+  display: flex;
+  gap: 3rem;
+}
+
+.vision,
+.mission,
+.benefits-section {
+  background: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  flex: 1;
+  border: 1px solid var(--border-color);
+}
+
+.edu-article {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  padding: 0 5%;
+}
+
+.edu-article h2 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.benefits-section ul,
+.edu-article ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   6. EQUIPMENT & MAP GALLERY (CSS Grid)
+   ========================================================================== */
+.tools-grid,
+.maps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.tool-card,
+.map-item {
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition:
+    transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.tool-card:hover,
+.map-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tool-card img,
+.map-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: calc(var(--border-radius) - 2px);
+  margin-bottom: 1.2rem;
+}
+
+/* ==========================================================================
+   7. EVENTS & AGENDA
+   ========================================================================== */
+.events-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.event-card {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.event-date {
+  display: inline-block;
+  background-color: #e2ede5;
+  color: var(--primary-color);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+}
+
+/* ==========================================================================
+   8. INTERACTIVE QUIZ AREA
+   ========================================================================== */
+.quiz-section {
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 0 5%;
+}
+
+.quiz-card,
+.quiz-result {
+  background: var(--surface-color);
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 2rem;
+  color: var(--primary-color);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn-option {
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-speed);
+}
+
+.btn-option:hover:not(:disabled) {
+  background-color: #e2ede5;
+  border-color: var(--primary-color);
+}
+
+.score-display {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+/* ==========================================================================
+   9. FORMS & CONTACT (Membership Register & Direct Messages)
+   ========================================================================== */
+.form-section,
+.thank-you-section {
+  max-width: 550px;
+  margin: 4rem auto;
+  background: var(--surface-color);
+  padding: 3rem 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-section .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.contact-info,
+.contact-form-placeholder {
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  flex: 1;
+}
+
+/* ==========================================================================
+   10. GLOBAL FOOTER (Updated for Icon Alignment)
+   ========================================================================== */
+footer {
+    background-color: var(--primary-dark);
+    color: #A3B8AD;
+    padding: 2rem 5%;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-media a {
+    color: #A3B8AD;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    
+    /* Perubahan Utama: Menyusun ikon dan teks secara horizontal */
+    display: inline-flex;  
+    align-items: center;   /* Menyeimbangkan posisi vertikal ikon dan teks agar sejajar */
+    gap: 0.5rem;           /* Memberikan jarak horizontal antara ikon PNG dan teks */
+}
+
+.social-media a:hover {
+    color: white;
+}
+
+/* Mengontrol properti gambar ikon di dalam link */
+.social-media img {
+    height: 20px;          /* Mengunci tinggi ikon menjadi 20px agar proporsional dengan teks */
+    width: auto;           /* Lebar otomatis menyesuaikan agar gambar tidak gepeng */
+    object-fit: contain;
+    opacity: 0.8;          /* Sedikit redup saat normal */
+    transition: opacity var(--transition-speed);
+    
+    /* 💡 TIPS OPSIONAL: Jika ikon .png Anda aslinya berwarna hitam, 
+       aktifkan baris kode di bawah ini untuk mengubahnya menjadi putih bersih */
+    /* filter: brightness(0) invert(1); */
+}
+
+/* Efek interaksi saat menu media sosial disorot kursor */
+.social-media a:hover img {
+    opacity: 1;            /* Ikon menjadi terang benderang saat hover */
+}
+
+/* Penyesuaian Responsif Layar HP */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: center;
+    }
+    
+    .social-media {
+        justify-content: center; /* Memastikan ikon tetap di tengah layar HP */
+    }
+}
+
+/* ==========================================================================
+   11. RESPONSIVE DESIGN (Media Queries - Kriteria Responsive Perfect)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  /* Navbar Mobile view transformation */
+  .nav-links {
+    position: fixed;
+    right: 0;
+    top: 60px; /* Adjust based on your header height */
+    height: calc(100vh - 60px);
+    background-color: var(--primary-color);
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    padding-top: 3rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  /* Active state injected by main.js Toggle */
+  .nav-links.nav-active {
+    transform: translateX(0%);
+  }
+
+  /* Flex containers fallback to stacking layout */
+  .features-container,
+  .vision-mission,
+  .contact-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  /* Adjust typography sizing for smaller viewports */
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-header h1,
+  .education-header h1,
+  .tools-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .btn-secondary {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .hero-content .btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   IMAGE SLIDER COMPONENT (ABOUT PAGE)
+   ========================================================================== */
+.club-gallery {
+  max-width: var(--max-width);
+  margin: 0 auto 3rem;
+  padding: 0 5%;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 800px; /* Ukuran maksimal lebar slider */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slider-wrapper {
+  display: flex;
+  width: 400%; /* 4 slide = 400% */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slide {
+  width: 25%; /* 100% dibagi 4 gambar */
+  position: relative;
+  height: 450px; /* Tinggi seragam untuk seluruh gambar */
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gambar terpotong rapi, tidak gepeng */
+}
+
+/* Teks Keterangan di Dalam Gambar */
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 2rem 1.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Tombol Navigasi Kanan-Kiri */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: var(--primary-color);
+  border: none;
+  font-size: 1.5rem;
+  padding: 1rem 0.8rem;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition:
+    background-color var(--transition-speed),
+    color var(--transition-speed);
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-left {
+  left: 0;
+}
+
+.btn-right {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+/* Responsif untuk Layar HP */
+@media screen and (max-width: 768px) {
+  .slide {
+    height: 280px; /* Perkecil tinggi slider di HP */
+  }
+  .slide-caption {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .slider-btn {
+    padding: 0.6rem 0.4rem;
+    font-size: 1.2rem;
+  }
+}
