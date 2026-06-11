@@ -1,43 +1,345 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the essential gear used in orienteering competitions and practices.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover the essential gear used in orienteering competitions and practices."
+    />
     <title>Orienteering Club - Equipment</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <div id="global-header"></div>
 
     <main id="main-content">
-        <section class="tools-intro">
-            <h1>Essential Orienteering Gear</h1>
-            <p>Get to know the tactical tools you will use out in the terrain.</p>
-        </section>
+      <section class="tools-intro">
+        <h1>Essential Orienteering Equipment</h1>
+        <p>
+          Explore the mandatory equipment needed for navigation, tracking,
+          apparel, and safety.
+        </p>
+      </section>
 
-        <section class="tools-grid">
-            <div class="tool-card">
-                <img src="assets/images/thumb-compass.webp" alt="Thumb Compass">
-                <h3>Thumb Compass</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-            <div class="tool-card">
-                <img src="assets/images/orienteering-map.webp" alt="Orienteering Map">
-                <h3>Orienteering Map</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-            <div class="tool-card">
-                <img src="assets/images/control-flag.webp" alt="Control Flag">
-                <h3>Control Marker</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-        </section>
+      <section class="equipment-table-container">
+        <table class="equipment-table">
+          <thead>
+            <tr>
+              <th width="15%"></th>
+              <th width="65%"></th>
+              <th width="20%"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="category-header">
+              <td colspan="3"><h2>Navigation Equipment</h2></td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/map.png"
+                  alt="Orienteering Map"
+                  class="eq-img"
+                />
+              </td>
+              <td class="eq-title">Orienteering Map</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-map"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-map" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A highly detailed, large-scale topographic map showing terrain
+                contours, vegetation density, and water features, alongside the
+                specific course checkpoints.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/compass.jpg"
+                  alt="Orienteering Compass"
+                  class="eq-img"
+                />
+              </td>
+              <td class="eq-title">Orienteering Compass</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-compass"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-compass" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A specialized compass—usually a transparent baseplate or a thumb
+                compass—used to align the map with magnetic north and maintain
+                the correct direction of travel.
+              </td>
+            </tr>
+
+            <tr class="category-header">
+              <td colspan="3"><h2>Tracking & Recording Equipment</h2></td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/controlCard.webp"
+                  alt="Control Card"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Control Card (SI-Card / Electronic Chip)</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-sicard"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-sicard" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A device used to prove you visited the checkpoints. It can be a
+                traditional paper card for manual punching, or a digital finger
+                chip that logs times electronically.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/ControlDescriptionSheet.jpg"
+                  alt="Control Description Sheet"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Control Description Sheet</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-sheet"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-sheet" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A small slip containing international symbols that explain the
+                exact location of each checkpoint (e.g., "at the eastern base of
+                the boulder").
+              </td>
+            </tr>
+
+            <tr class="category-header">
+              <td colspan="3"><h2>Apparel & Personal Gear</h2></td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/suit.jpeg"
+                  alt="Orienteering Suit"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Orienteering Suit</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-suit"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-suit" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                Lightweight, breathable, and durable nylon or synthetic clothing
+                (usually long-sleeved) designed to protect the skin from
+                scratches while running through dense woods.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/Gaiters.jpg"
+                  alt="Gaiters / Shin Guards"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Gaiters / Shin Guards</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-gaiters"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-gaiters" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                Protective sleeves worn over the lower legs to shield the shins
+                from briars, thorns, and sharp undergrowth.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/Shoes.png"
+                  alt="Orienteering Shoes"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Orienteering Shoes (Studded Shoes)</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-shoes"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-shoes" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                Specialized running shoes with aggressive rubber or metal studs
+                on the soles to provide maximum grip on muddy, wet, or steep
+                terrain.
+              </td>
+            </tr>
+
+            <tr class="category-header">
+              <td colspan="3"><h2>Safety & Accessory Equipment</h2></td>
+            </tr>
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/whistle.webp"
+                  alt="Whistle"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Whistle</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-whistle"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-whistle" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A mandatory safety device used strictly to signal for emergency
+                assistance in case of severe injury or getting hopelessly lost.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/Magnifier.jpg"
+                  alt="Map Magnifier"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Map Magnifier</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-magnifier"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-magnifier" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A magnifying glass that clips onto the thumb compass or hand,
+                helping the runner read tiny map details while on the move.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/DescriptionHolder.webp"
+                  alt="Control Description Holder"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Control Description Holder</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-holder"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-holder" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                A transparent plastic sleeve strapped to the forearm for quick,
+                hands-free reading of the checkpoint descriptions.
+              </td>
+            </tr>
+
+            <tr class="item-row">
+              <td>
+                <img
+                  src="assets/images/Glasses.webp"
+                  alt="Safety Glasses"
+                  class="eq-img"
+                  loading="lazy"
+                />
+              </td>
+              <td class="eq-title">Safety Glasses</td>
+              <td>
+                <button
+                  class="btn btn-secondary toggle-btn"
+                  data-target="desc-glasses"
+                >
+                  Expand
+                </button>
+              </td>
+            </tr>
+            <tr id="desc-glasses" class="desc-row" style="display: none">
+              <td colspan="3" class="eq-desc">
+                Clear, lightweight glasses worn to protect the eyes from
+                low-hanging branches and twigs when bursting through thick
+                vegetation.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
     <div id="global-footer"></div>
-
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
