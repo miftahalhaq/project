@@ -1,5 +1,4 @@
-/* MAIN FUNCTION */
-
+/* HEADER & FOOTER INJECTOR */
 function loadComponent(elementId, filePath, callback = null) {
     const container = document.getElementById(elementId);
     if (!container) return;
@@ -16,7 +15,6 @@ function loadComponent(elementId, filePath, callback = null) {
         .catch(error => console.error("Error component loading:", error));
 }
 
-/* HAMBURGER */
 function initNavbarLogic() {
     const hamburger = document.querySelector(".hamburger-menu");
     const navLinks = document.querySelector(".nav-links");
@@ -40,9 +38,9 @@ function initNavbarLogic() {
     });
 }
 
-/* SPECIFIC FUNCTIONS */
+/* INTERACTIVE PAGE */
 
-/* SLIDER */
+// AUTO IMAGE SLIDER
 function initImageSlider() {
     const wrapper = document.querySelector(".slider-wrapper");
     const slides = document.querySelectorAll(".slide");
@@ -79,49 +77,47 @@ function initImageSlider() {
     }
 
     if (btnRight) {
-        btnRight.addEventListener("click", () => {
-            nextSlide();
-            startAutoSlide();
-        });
+        btnRight.addEventListener("click", () => { nextSlide(); startAutoSlide(); });
     }
-
     if (btnLeft) {
-        btnLeft.addEventListener("click", () => {
-            prevSlide();
-            startAutoSlide();
-        });
+        btnLeft.addEventListener("click", () => { prevSlide(); startAutoSlide(); });
     }
 
     startAutoSlide();
 }
 
-/* EXPAND TABLE */
+// EXPAND BTN
 function initEquipmentToggle() {
-    const expandButtons = document.querySelectorAll(".toggle-btn");
-    
-    if (expandButtons.length === 0) return;
+    var colls = document.getElementsByClassName('collapsible');
 
-    expandButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            const targetId = this.getAttribute("data-target");
-            const descriptionRow = document.getElementById(targetId);
-
+    for (var i = 0; i < colls.length; i++) {
+        colls[i].addEventListener('click', function () {
+            this.classList.toggle('active');
+            
+            var descriptionRow = this.nextElementSibling;
             if (!descriptionRow) return;
 
-            if (descriptionRow.style.display === "none" || descriptionRow.style.display === "") {
-                descriptionRow.style.display = "table-row";
-                this.textContent = "Collapse";
-                this.classList.add("btn-active");
+            var con = descriptionRow.querySelector('.content-wrapper');
+            if (!con) return;
+
+            if (descriptionRow.classList.contains('open')) {
+                con.style.maxHeight = null;
+                setTimeout(() => {
+                    if (!this.classList.contains('active')) {
+                        descriptionRow.classList.remove('open');
+                    }
+                }, 400);
             } else {
-                descriptionRow.style.display = "none";
-                this.textContent = "Expand";
-                this.classList.remove("btn-active");
+                descriptionRow.classList.add('open');
+                requestAnimationFrame(() => {
+                    con.style.maxHeight = (con.scrollHeight + 48) + 'px'; 
+                });
             }
         });
-    });
+    }
 }
 
-/* SPONSORSHIP TO CONFIRMATION */
+// FORM VALIDATION
 function initSponsorshipForm() {
     const sponsorshipForm = document.getElementById("sponsorship-form");
     if (sponsorshipForm) {
@@ -132,10 +128,11 @@ function initSponsorshipForm() {
     }
 }
 
-/* MAIN INIATITION */
+/* EVENT LISTENER INITIALIZATION */
 document.addEventListener("DOMContentLoaded", () => {
     loadComponent("global-header", "components/header.html", initNavbarLogic);
     loadComponent("global-footer", "components/footer.html");
+
     initImageSlider();
     initEquipmentToggle();
     initSponsorshipForm();
