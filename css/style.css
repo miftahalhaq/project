@@ -300,17 +300,56 @@ header {
   margin: 0 auto 4rem;
   padding: 0 5%;
 }
-.nested-list-container {
-  margin-top: 1.5rem;
-}
-.nested-list-container li {
-  margin-bottom: 0.5rem;
-  list-style-type: "\2713";
-}
 
 .definition-list-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 1.5rem;
+}
+
+.dl-group {
+  background-color: var(--surface-color);
+  padding: 1.8rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.dl-group:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(46, 90, 68, 0.05);
+  border-color: #e2ede5;
+}
+
+.definition-list-container dt {
+  font-size: 1.2rem;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
+
+.definition-list-container dd {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-left: 0;
+}
+
+.dl-group:last-child {
+  grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 768px) {
+  .definition-list-container {
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
+  
+  .dl-group {
+    padding: 1.2rem;
+  }
+}
+
 
 .cta-container-bottom {
   margin-bottom: 4rem;
@@ -407,8 +446,24 @@ header {
   flex-direction: column;
 }
 .developer-info {
-  margin-top: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto 4rem;
+  padding: 0 5%;
+  width: 100%;
 }
+
+.developer-info-card:hover {
+  box-shadow: 0px 0px 15px 0px var(--text-color);
+  position: sticky;
+  transform: translateY(-2px);
+}
+
+.developer-info h3 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 150%;
+}
+
 .developer-info-card {
   background-color: var(--surface-color);
   padding: 2.5rem;
@@ -416,20 +471,21 @@ header {
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
+
 .dev-list-container {
   padding-left: 1.2rem;
   line-height: 2;
 }
-.developer-item {
+
+.developer-item ol {
+  list-style: upper-roman;
   color: var(--text-color);
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
   transition: color var(--transition-speed);
 }
-.developer-item:hover {
-  color: var(--primary-color);
-}
+
 .contact-form-title {
   margin-bottom: 0.5rem;
 }
